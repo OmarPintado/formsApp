@@ -15,9 +15,9 @@
                  formControlName="name"
                  placeholder="Nombre del usuario">
 
-          <span class="form-text text-danger">
-                        Debe de ser en formato de nombre y apellido
-                    </span>
+          <span *ngIf="isValidField('name')" class="form-text text-danger">
+            Debe de ser en formato de nombre y apellido
+          </span>
         </div>
       </div>
 
@@ -29,9 +29,9 @@
                  class="form-control"
                  formControlName="email"
                  placeholder="Email del usuario">
-          <span class="form-text text-danger">
-                        mensaje de error del email
-                    </span>
+          <span *ngIf="isValidField('email')" class="form-text text-danger">
+            mensaje de error del email
+          </span>
         </div>
       </div>
 
@@ -43,9 +43,9 @@
                  class="form-control"
                  formControlName="username"
                  placeholder="Nombre código del usuario">
-          <span class="form-text text-danger">
-                         El username no puede ser Strider
-                    </span>
+          <span *ngIf="isValidField('username')" class="form-text text-danger">
+            El username no puede ser Strider
+          </span>
         </div>
       </div>
 
@@ -58,9 +58,9 @@
                  formControlName="password"
                  placeholder="Password de su cuenta">
 
-          <span class="form-text text-danger">
-                         La contraseña debe de ser mayor de 6 caracteres.
-                    </span>
+          <span *ngIf="isValidField('password')" class="form-text text-danger">
+            La contraseña debe de ser mayor de 6 caracteres.
+          </span>
         </div>
       </div>
 
@@ -73,9 +73,9 @@
                  formControlName="password2"
                  placeholder="Confirmar la contraseña">
 
-          <span class="form-text text-danger">
+          <span *ngIf="isValidField('password2')" class="form-text text-danger">
                          Las contraseñas deben de ser iguales
-                    </span>
+          </span>
         </div>
       </div>
 
@@ -105,7 +105,7 @@
 <pre>{{ myForm.value.name | json }}</pre>
 
 <h5>Email</h5>
-<pre>{{ myForm.value["email"] }}</pre>
+<pre>{{ myForm.controls['email'].errors | json }}</pre>
 
 <h5>Username</h5>
 <pre>{{ myForm.controls['username'].errors | json }}</pre>
